@@ -3,5 +3,15 @@
   "index-file": "index.html",
   "icon": "app-icon.png",
   "uuid": "25656880-ca58-4afc-b9b8-35fe39604309",
-  "name": "HSRM_BEACON"
+  "name": "hsrm_beacon",
+  "plugins": [],
+  "libraries": [],
+  "title": "HSRM-Beacon",
+  "description": "App that switches content depending on what station u are",
+  "long-description": "App long description.",
+  "version": "0.0.1",
+  "author-name": "Evothings",
+  "author-email": "build@evothings.com",
+  "author-url": "https://evothings.com",
+  "cordova-id": "com.evothings.samples.HSRM.BEACON"
 }
