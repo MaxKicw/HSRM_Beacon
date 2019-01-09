@@ -9,7 +9,6 @@ button {
     padding: 10%;
     }
 body{
-    background-color: aqua;
 }
 .A{
     display: none;
@@ -20,18 +19,8 @@ body{
 .A.active{
     display: block;
     position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100vw;
-    height: 100vh;
-    background-color: red;
 }
 .B.active{
     display: block;
     position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100vw;
-    height: 100vh;
-    background-color: green;
 }

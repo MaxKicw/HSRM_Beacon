@@ -1,0 +1,172 @@
+body{
+    margin: 0;
+    padding: 0;
+	font-family: Flama-Basic;
+}
+h1{
+	font-family: Flama-Semi;
+}
+@font-face{
+	font-family: Flama-Basic;
+	src: url(./font/Flama-Basic.otf);
+}
+@font-face{
+	font-family: Flama-Semi;
+	src: url(./font/Flama-Semibold.otf);
+}
+.wraper.active{
+	display: block;
+}
+.wraper{
+	display: none;
+	width: 100vw;
+	background-color: white;
+}
+.menu{
+	width: 100vw;
+	height: 10vh;
+	background-color: white;
+	position: fixed;
+	box-shadow: 0px 0px 10px black;
+}
+.logo{
+	width: 150px;
+	height: 9vh;
+	margin: 0 auto;
+	margin-top: 2vh;
+	background-image: url();
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.header{
+	width: 100vw;
+	height: 40vh;
+	position: absolute;
+	top: 10vh;
+	background-image: url(./images/Laptop+Bild.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.welcome{
+	width: 100vw;
+	height: 20vh;
+	position: absolute;
+	top: 50vh;
+	padding: 20px;
+}
+.secondtext{
+	width: 100vw;
+	height: 20vh;
+	position: absolute;
+	top: 160vh;
+	padding: 20px;
+}
+.thirdtext{
+	width: 100vw;
+	height: 20vh;
+	position: absolute;
+	top: 200vh;
+	padding: 20px;
+}
+.footer{
+	width: 100vw;
+	height: 15vh;
+	background-image: url(./images/1200px-Logo-Hochschule-RheinMain.svg.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 30%;
+	position: absolute;
+	top: 270vh;
+	box-shadow: 0px 0px 10px black;
+}
+.secondtext p, h1{
+	text-align: center;
+	color: black;
+}
+.secondtext p{
+	font-size: 1.3em; 
+}
+p, h1{
+	text-align: center;
+	color: black;
+}
+.welcome p{
+	font-size: 1.3em; 
+}
+.icon{
+	height: 12vh;
+	margin-left: 33vw;
+	background-image: url(./images/webshop_977186.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.avatar{
+	height: 100px;
+	width: 100px;
+	margin: 40px auto;
+	background-image: url(./images/46489622_575208332928822_924450238259789824_n.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+hr{
+	background-color: black;
+	height: 1px;
+}
+.pfeil{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 92vh;
+	background-image: url(./images/pfeil.png);
+	background-repeat: no-repeat;
+	margin-left: 45vw;
+	animation: bounce 3s infinite;
+}
+.linkbox{
+	width: 100vw;
+	height: 50vh;
+	position: absolute;
+	top: 100vh;
+}
+.install{
+	width: 95%;
+	margin: 2.5%;
+	height: 50%;
+	background-color: rgb(150, 191, 50); 
+}
+.backend, .frontend{
+	width: 45%;
+	height: 45%;
+	margin: 2.5%;
+	background-color: green;
+	float: left;
+}
+.hsrm{
+	height: 12vh;
+	margin-left: 20vw;
+	width: 100%;
+	background-image: url(./images/1200px-Logo-Hochschule-RheinMain.svg.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 85vh;
+}
+.backend{
+	background-color: rgb(106, 193, 190); 
+}
+.frontend{
+	background-color: rgb(44,130,194); 
+}
+.kastenschrift{
+	color: white;
+}
+@keyframes bounce{
+	0%{top: 91vh}
+	50%{top: 92vh}
+	100%{top: 91vh}
+}
+
+@media only screen and (min-device-width: 1000px) {
+/*	EVTL Weboptimierung wenn benötigt*/
+}
