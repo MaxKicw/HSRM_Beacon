@@ -7,7 +7,7 @@
 		selected:"",
 	};
 	// Toleranz für welcher Beacon aktiviert wird
-
+	let tolerance = 0;
 	// Create UPD socket when Cordova is loaded.
 	document.addEventListener(
 		'deviceready',
@@ -70,7 +70,6 @@
 					return false;
 				}
 			});
-			console.log(overviewArray);
 			// Dann wird der Beacon entweder hinzugefügt oder nicht
 			if(overviewArray.includes(true)){
 				return;
@@ -104,16 +103,17 @@
 			  smallest.counter++;
 		  }
 		  function switchContent(selected){
-			if(selected.name === undefined){
-			  
-			}else{
-				let station = selected.name.toString();
-				document.getElementById("https://twitter.com/woasned").classList.remove('active');
-				document.getElementById("https://twitter.com/estimote").classList.remove('active');
-				document.getElementById(station).classList.add('active');
-			}
-		}
+			  if(selected.name === undefined){
+				
+			  }else{
+				  let station = selected.name;
+				  document.getElementById("https://twitter.com/woasned").classList.remove('active');
+				  document.getElementById("https://twitter.com/estimote").classList.remove('active');
+				  document.getElementById(station).classList.add('active');
+			  }
+		  }
 	}
+
 	app.onError = function(error)
 	{
 	}

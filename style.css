@@ -1,0 +1,37 @@
+/* Make text bigger. */
+body {
+    font-size: 175%;
+    }
+
+/* Make buttons bigger. */
+button {
+    font-size: 100%;
+    padding: 10%;
+    }
+body{
+    background-color: aqua;
+}
+.A{
+    display: none;
+}
+.B{
+    display: none;
+}
+.A.active{
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: red;
+}
+.B.active{
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: green;
+}

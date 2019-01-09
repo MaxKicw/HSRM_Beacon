@@ -1,192 +1,25 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, user-scalable=no,
+			shrink-to-fit=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title>HSRM-Beacon</title>
+		<script>
+			// Redirect console.log to Evothings Workbench.
+			if (window.hyper && window.hyper.log) { console.log = hyper.log }
+		</script>
+	</head>
+	<body>
+		<div class="A" id="https://twitter.com/woasned"></div>
+		<div class="B" id="https://twitter.com/estimote"></div>
 
-<head>
-
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, user-scalable=no,
-		shrink-to-fit=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
-
-	<title>Eddystone Scan Test</title>
-
-	<style>
-	/* Make text bigger. */
-	body {
-	    font-size: 175%;
-	    }
-
-	/* Make buttons bigger. */
-	button {
-	    font-size: 100%;
-	    padding: 10%;
-	    }
-	body{
-    	background-color: aqua;
-	}
-	.A{
-		display: none;
-	}
-	.B{
-		display: none;
-	}
-	.A.active{
-		display: block;
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		width: 100vw;
-		height: 100vh;
-		background-color: red;
-	}
-	.B.active{
-		display: block;
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		width: 100vw;
-		height: 100vh;
-		background-color: green;
-	}
-	</style>
-
-	<script>
-	// Redirect console.log to Evothings Workbench.
-	if (window.hyper && window.hyper.log) { console.log = hyper.log }
-	</script>
-
-</head>
-
-<body>
-
-	<div class="A" id="A">
-
-	</div>
-	<div class="B" id="B">
-
-	</div>
-
-
-	<script src="cordova.js"></script>
-	<script src="libs/evothings/evothings.js"></script>
-	<script src="libs/evothings/eddystone/eddystone.js"></script>
-	<script src="libs/jquery/jquery.js"></script>
-
-	<script>
-	// Application object
-	var app = {
-		counter:0,
-	};
-	let beaconCollection = [];
-	let startUp = true;
-	// Toleranz für welcher Beacon aktiviert wird
-	let tolerance = 0;
-	let a = document.getElementById("A");
-	let b = document.getElementById("B");
-	// Create UPD socket when Cordova is loaded.
-	document.addEventListener(
-		'deviceready',
-		function() { evothings.scriptsLoaded(app.init) },
-		false)
-
-	app.init = function()
-	{
-		app.startScan();
-	}
-
-	app.startScan = function()
-	{
-			evothings.eddystone.startScan(app.onBeaconFound, app.onError);
-			setInterval(function() {
-			app.counter = app.counter+1;
-			console.log(app.counter);
-			evothings.eddystone.startScan(app.onBeaconFound, app.onError);
-			}, 600);
-	}
-
-	app.stopScan = function()
-	{
-
-	    // Start scan.
-	    evothings.eddystone.stopScan()
-	}
-
-	app.onBeaconFound = function(beacon)
-	{
-		app.counter = 0;
-		console.log("Found one...");
-		// Hier wird die Distanz der Beacons berechnt
-		var distance = app.calculateBeaconDistance(beacon) || '';
-		// Beim ersten Setup ist die beaconCollection leer, also wird 
-		// der erste der gefunden wird auf jedenfall eingefügt
-		if(startUp){
-			console.log("Setup")
-			var obj = {
-					name:beacon.url,
-					distance:distance,
-				}
-			beaconCollection.push(obj);
-			console.log(JSON.stringify(beaconCollection));
-			startUp = false;
-		}
-		// Anschließend sollen keine Beacons hinzugefügt werden,
-		// wo die Distanz unbekannt ist
-		if(distance != undefined){
-			// Daraufhin wird im overviewArray geschaut ob der Beacon der gerade gesehen wurde
-			// bereits in der Collection ist:
-			// true = ist gleich
-			// false = ist nicht gleich
-			let overviewArray = beaconCollection.map((knownBeacon,index) => {
-				if(knownBeacon.name === beacon.url){
-					beaconCollection[index].distance = distance;
-					return true;
-				}else{
-					return false;
-				}
-			});
-			// Welcher ist der Nächste
-			if(beaconCollection.length > 1){
-				if(beaconCollection[0].distance > beaconCollection[1].distance && beaconCollection[0].distance > tolerance){
-					console.log("Beacon "+beaconCollection[0].name+" ist näher")
-					console.log(beaconCollection[0].distance);
-    				b.classList.add('active');
-					a.classList.remove('active');
-				}else if(beaconCollection[1].distance > tolerance){
-					console.log("Beacon "+beaconCollection[1].name+" ist näher")
-					console.log(beaconCollection[0].distance);
-    				b.classList.remove('active');
-					a.classList.add('active');
-				}
-			}
-			console.log(JSON.stringify(beaconCollection));
-			// Dann wird der Beacon entweder hinzugefügt oder nicht
-			if(overviewArray.includes(true)){
-				return;
-			}else{
-				var obj = {
-					name:beacon.url,
-					distance:distance,
-				}
-				beaconCollection.push(obj);
-			}
-		}
-	
-	}
-
-	app.onError = function(error)
-	{
-	}
-
-	app.showArray = function(array)
-	{
-		document.getElementById('array').innerHTML = array
-	}
-
-	app.calculateBeaconDistance = function(beacon)
-	{
-		return evothings.eddystone.calculateAccuracy(beacon.txPower, beacon.rssi)
-	}
-	</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-</body>
-
+		<script src="index.js"></script>
+		<script src="cordova.js"></script>
+		<script src="libs/evothings/evothings.js"></script>
+		<script src="libs/evothings/eddystone/eddystone.js"></script>
+		<script src="libs/jquery/jquery.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	</body>
 </html>
