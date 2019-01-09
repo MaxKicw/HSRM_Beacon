@@ -7,6 +7,8 @@
 		selected:"",
 	};
 	// Toleranz für welcher Beacon aktiviert wird
+	let a = document.getElementById("A");
+	let b = document.getElementById("B");
 	let tolerance = 0;
 	// Create UPD socket when Cordova is loaded.
 	document.addEventListener(
@@ -41,13 +43,14 @@
 		app.counter = 0;
 		app.mostRecentBeacon = beacon;
 		console.log("#####################################"+JSON.stringify(app.selected)+"###############################");
+		console.log("Update für "+app.mostRecentBeacon.url);
 		// Hier wird die Distanz der Beacons berechnt
 		var distance = app.calculateBeaconDistance(beacon) || '';
 		findNearest(app.beaconCollection);
-		switchContent(app.selected);
 		// Beim ersten Setup ist die app.beaconCollection leer, also wird 
 		// der erste der gefunden wird auf jedenfall eingefügt
 		if(app.startUp){
+			console.log("Setup")
 			var beacon = {
 					name:beacon.url,
 					distance:distance,
@@ -61,19 +64,26 @@
 		// wo die Distanz unbekannt ist
 		// Hier wird die Distanz geupdated. Ist der Beaconname bekannt (knownBeacon.name) dann wird die
 		// die alte Distanz mit der neuen ersetzt Z.67
+		console.log("Erst Beaconcollection: "+JSON.stringify(app.beaconCollection));
+		console.log("Der akutelle Beacon: "+app.mostRecentBeacon.url);
 		if(distance != undefined){
 			let overviewArray = app.beaconCollection.map((knownBeacon,index) => {
+				console.log("Bekannte Beacons: "+JSON.stringify(knownBeacon));
 				if(knownBeacon.name == app.mostRecentBeacon.url){
+					console.log("Distanzupdate");
 					app.beaconCollection[index].distance = distance;
 					return true;
 				}else{
 					return false;
 				}
 			});
+			console.log(overviewArray);
 			// Dann wird der Beacon entweder hinzugefügt oder nicht
 			if(overviewArray.includes(true)){
+				console.log("Nur Distanzupdates");
 				return;
 			}else{
+				console.log("Neuer Beacon wird hinzugefügt")
 				var obj = {
 					name:app.mostRecentBeacon.url,
 					distance:distance,
@@ -84,33 +94,29 @@
 			}
 		}
 		function findNearest(beaconCollection) {
+				console.log("Suche nach niedrigstem!")
 				let smallest={distance:100};;
 			   for(i=0;i<beaconCollection.length-1;i++){
+				   console.log(beaconCollection[i].name+" / "+beaconCollection[i].distance+" vs. "+beaconCollection[i+1].name+" / "+beaconCollection[i+1].distance);
 				  if(beaconCollection[i].distance < beaconCollection[i+1].distance){
 					  smallest = app.beaconCollection[i];
+					  console.log("links näher"+smallest.counter);
 					  if(smallest.counter>=5){
 						app.selected = smallest;
 						app.beaconCollection.map(beacon => beacon.counter = 0);
 					  }
 				  }else if(smallest.distance > beaconCollection[i+1].distance){
 						smallest = app.beaconCollection[i+1];
+						console.log("rechts näher"+smallest.counter);
 					  if(smallest.counter>=5){
 						app.selected = smallest;
 						app.beaconCollection.map(beacon => beacon.counter = 0);
 					  }
 				  }
 			  }
+			  console.log("Smallest "+smallest.counter+" / "+smallest.name);
 			  smallest.counter++;
-		  }
-		  function switchContent(selected){
-			  if(selected.name === undefined){
-				
-			  }else{
-				  let station = selected.name;
-				  document.getElementById("https://twitter.com/woasned").classList.remove('active');
-				  document.getElementById("https://twitter.com/estimote").classList.remove('active');
-				  document.getElementById(station).classList.add('active');
-			  }
+			  console.log("Smallest "+smallest.counter+" / "+smallest.name);
 		  }
 	}
 
