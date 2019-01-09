@@ -20,9 +20,6 @@
 	    font-size: 100%;
 	    padding: 10%;
 	    }
-	body{
-    	background-color: aqua;
-	}
 	.A{
 		display: none;
 	}
@@ -30,22 +27,10 @@
 		display: none;
 	}
 	.A.active{
-		display: block;
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		width: 100vw;
-		height: 100vh;
-		background-color: red;
+		display: inline;
 	}
 	.B.active{
-		display: block;
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		width: 100vw;
-		height: 100vh;
-		background-color: green;
+		display: inline;
 	}
 	</style>
 
@@ -58,13 +43,14 @@
 
 <body>
 
-	<div class="A" id="A">
+	<h1>Eddystone Scan Test</h1>
 
-	</div>
-	<div class="B" id="B">
+	<button onclick="app.startScan()">Start scan</button>
+	<button onclick="app.stopScan()">Stop scan</button>
 
-	</div>
-
+	<p id="info"></p>
+	<p class="A" id="A">4.2 ist Näher</p>
+	<p class="B" id="B">5.7 ist Näher</p>
 
 	<script src="cordova.js"></script>
 	<script src="libs/evothings/evothings.js"></script>
@@ -73,13 +59,11 @@
 
 	<script>
 	// Application object
-	var app = {
-		counter:0,
-	};
+	var app = {};
 	let beaconCollection = [];
 	let startUp = true;
 	// Toleranz für welcher Beacon aktiviert wird
-	let tolerance = 0;
+	let tolerance = 1.0;
 	let a = document.getElementById("A");
 	let b = document.getElementById("B");
 	// Create UPD socket when Cordova is loaded.
@@ -90,21 +74,20 @@
 
 	app.init = function()
 	{
-		app.startScan();
 	}
 
 	app.startScan = function()
 	{
-			evothings.eddystone.startScan(app.onBeaconFound, app.onError);
-			setInterval(function() {
-			app.counter = app.counter+1;
-			console.log(app.counter);
-			evothings.eddystone.startScan(app.onBeaconFound, app.onError);
-			}, 600);
+	    app.showInfo('Scanning...')
+	    // Start scan.
+	    evothings.eddystone.startScan(
+            app.onBeaconFound,
+            app.onError)
 	}
 
 	app.stopScan = function()
 	{
+	    app.showInfo('Stopped scanning')
 
 	    // Start scan.
 	    evothings.eddystone.stopScan()
@@ -112,8 +95,6 @@
 
 	app.onBeaconFound = function(beacon)
 	{
-		app.counter = 0;
-		console.log("Found one...");
 		// Hier wird die Distanz der Beacons berechnt
 		var distance = app.calculateBeaconDistance(beacon) || '';
 		// Beim ersten Setup ist die beaconCollection leer, also wird 
@@ -148,16 +129,16 @@
 				if(beaconCollection[0].distance > beaconCollection[1].distance && beaconCollection[0].distance > tolerance){
 					console.log("Beacon "+beaconCollection[0].name+" ist näher")
 					console.log(beaconCollection[0].distance);
-    				b.classList.add('active');
-					a.classList.remove('active');
+    				a.classList.add("active");
+					b.classList.remove("active");
 				}else if(beaconCollection[1].distance > tolerance){
 					console.log("Beacon "+beaconCollection[1].name+" ist näher")
 					console.log(beaconCollection[0].distance);
-    				b.classList.remove('active');
-					a.classList.add('active');
+    				a.classList.remove("active");
+					b.classList.add("active");
 				}
 			}
-			console.log(JSON.stringify(beaconCollection));
+			
 			// Dann wird der Beacon entweder hinzugefügt oder nicht
 			if(overviewArray.includes(true)){
 				return;
@@ -167,6 +148,7 @@
 					distance:distance,
 				}
 				beaconCollection.push(obj);
+				app.showInfo('Beacon found: ' + beacon.url + ' ' + distance)
 			}
 		}
 	
@@ -174,6 +156,13 @@
 
 	app.onError = function(error)
 	{
+		app.showInfo('BLE error ' + error)
+	}
+
+	app.showInfo = function(info)
+	{
+		document.getElementById('info').innerHTML = info
+		console.log(info)
 	}
 
 	app.showArray = function(array)
