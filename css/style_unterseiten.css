@@ -1,0 +1,31 @@
+/* Make text bigger. */
+.welcome{
+    padding: 15px;
+}
+.videocontainer{
+
+}
+.menu{
+    width: 100vw;
+    height: 10vh;
+    background-color: white;
+}
+.footer{
+    width: 100vw;
+    height: 10vh;
+    background-image: url(./images/1200px-Logo-Hochschule-RheinMain.svg.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+    background-size: 30%;
+    box-shadow: 0px 0px 10px black;
+}
+.logo{
+    background-image: url(./images/e-biz\ lab\ breit\ RGB.png);
+	background-size: contain;
+    background-repeat: no-repeat;
+    width: 150px;
+	height: 9vh;
+	margin: 0 auto;
+	margin-top: 2vh;
+}
