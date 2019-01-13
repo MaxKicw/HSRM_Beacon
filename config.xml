@@ -5,13 +5,11 @@
    xmlns="http://www.w3.org/ns/widgets"
    xmlns:gap="http://phonegap.com/ns/1.0">
 
-<name>Cordova Accelerometer</name>
-<description> Testing the on-board accelerometer </description>
-<author email="websmurf@evothings.com" href="http://evothings.com"> Webb S Murph </author>
+<name>HSRM Beacon</name>
+<description> Eine App für das E-Business</description>
+<author email="m14279@googlemail.com" href="http://evothings.com"> Webb S Murph </author>
 <content src="index.html" />
 
-<gap:plugin name="cordova-plugin-device-motion" source="npm" />
-<gap:plugin name="cordova-plugin-vibration" source="npm" />
 <plugin spec="https://github.com/evothings/cordova-eddystone" source="git"/>
 
 <access origin="*" /> <allow-intent href="http://*/*" />
