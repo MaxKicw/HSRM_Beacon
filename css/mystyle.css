@@ -117,11 +117,20 @@ p, h1,h3{
 .welcome p{
 	font-size: 1.3em; 
 }
-.icon{
-	height: 12vh;
-	margin-left: 33vw;
-	background-image: url(../images/webshop_977186.png);
-	background-size: contain;
+.icon_workflow{
+	height: 70px;
+	width: 70px;
+	margin: 0 auto;
+	background-image: url(../images/icon_workflow.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.icon_webshop{
+	height: 70px;
+	width: 70px;
+	margin: 0 auto;
+	background-image: url(../images/icon_webshop.png);
+	background-size: cover;
 	background-repeat: no-repeat;
 }
 .avatar_eine{

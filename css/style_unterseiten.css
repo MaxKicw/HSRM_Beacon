@@ -5,6 +5,11 @@
 .videocontainer{
 
 }
+a{
+    color: black;
+    font-family: Flama-Basic;
+	text-decoration: none; /* no underline */
+}
 .menu{
     width: 100vw;
     height: 10vh;
