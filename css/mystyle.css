@@ -7,7 +7,7 @@ body{
 	font-family: Flama-Basic;
 	width: 100vw;
 }
-h1{
+h1,h3{
 	font-family: Flama-Semi;
 }
 a{
@@ -100,7 +100,7 @@ a{
 	background-position: center;
 	background-size: 30%;
 	position: absolute;
-	top: 270vh;
+	top: 275vh;
 	box-shadow: 0px 0px 10px black;
 }
 .secondtext p, h1{
@@ -110,7 +110,7 @@ a{
 .secondtext p{
 	font-size: 1.3em; 
 }
-p, h1{
+p, h1,h3{
 	text-align: center;
 	color: black;
 }
@@ -124,9 +124,17 @@ p, h1{
 	background-size: contain;
 	background-repeat: no-repeat;
 }
-.avatar{
-	height: 100px;
-	width: 100px;
+.avatar_eine{
+	height: 150px;
+	width: 150px;
+	margin: 40px auto;
+	background-image: url(../images/bastian_eine-01.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.avatar_eiser{
+	height: 150px;
+	width: 150px;
 	margin: 40px auto;
 	background-image: url(../images/46489622_575208332928822_924450238259789824_n.jpg);
 	background-size: cover;
