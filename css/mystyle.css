@@ -42,7 +42,7 @@ a{
 	height: 9vh;
 	margin: 0 auto;
 	margin-top: 2vh;
-	background-image: url(./images/e-biz\ lab\ breit\ RGB.png);
+	background-image: url(../images/e-biz\ lab\ breit\ RGB.png);
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -51,7 +51,7 @@ a{
 	height: 40vh;
 	position: absolute;
 	top: 10vh;
-	background-image: url(./images/Laptop+Bild.jpg);
+	background-image: url(../images/Laptop+Bild.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -60,7 +60,7 @@ a{
 	height: 40vh;
 	position: absolute;
 	top: 10vh;
-	background-image: url(./images/workflow_header.jpg);
+	background-image: url(../images/workflow_header.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -91,7 +91,7 @@ a{
 .footer{
 	width: 100vw;
 	height: 15vh;
-	background-image: url(./images/1200px-Logo-Hochschule-RheinMain.svg.png);
+	background-image: url(../images/1200px-Logo-Hochschule-RheinMain.svg.png);
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -117,7 +117,7 @@ p, h1{
 .icon{
 	height: 12vh;
 	margin-left: 33vw;
-	background-image: url(./images/webshop_977186.png);
+	background-image: url(../images/webshop_977186.png);
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -125,7 +125,7 @@ p, h1{
 	height: 100px;
 	width: 100px;
 	margin: 40px auto;
-	background-image: url(./images/46489622_575208332928822_924450238259789824_n.jpg);
+	background-image: url(../images/46489622_575208332928822_924450238259789824_n.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -139,7 +139,7 @@ hr{
 	height: 50px;
 	position: absolute;
 	top: 92vh;
-	background-image: url(./images/pfeil.png);
+	background-image: url(../images/pfeil.png);
 	background-repeat: no-repeat;
 	margin-left: 45vw;
 	animation: bounce 3s infinite;
@@ -167,7 +167,7 @@ hr{
 	height: 12vh;
 	margin-left: 20vw;
 	width: 100%;
-	background-image: url(./images/1200px-Logo-Hochschule-RheinMain.svg.png);
+	background-image: url(../images/1200px-Logo-Hochschule-RheinMain.svg.png);
 	background-size: contain;
 	background-repeat: no-repeat;
 	position: absolute;
