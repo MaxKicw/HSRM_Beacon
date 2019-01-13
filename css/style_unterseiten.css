@@ -1,4 +1,13 @@
 /* Make text bigger. */
+html{
+	width: 100vw;
+}
+body{
+    margin: 0;
+    padding: 0;
+	font-family: Flama-Basic;
+	width: 100vw;
+}
 .welcome{
     padding: 15px;
 }
