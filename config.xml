@@ -11,7 +11,7 @@
 <content src="index.html" />
 
 <plugin spec="https://github.com/evothings/cordova-eddystone" source="git"/>
-<icon src="www/images/logo.png">
+<icon src="www/images/logo.png"/>
 <access origin="*" /> <allow-intent href="http://*/*" />
 <allow-intent href="https://*/*" />
 
