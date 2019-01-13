@@ -38,6 +38,10 @@
 
 	app.onBeaconFound = function(beacon)
 	{
+		setTimeout(function(){
+			document.getElementById("spinner").style.display = "none";
+			document.getElementById("spinner_text").style.display = "none";
+		}, 2000);
 		app.counter = 0;
 		app.mostRecentBeacon = beacon;
 		console.log("#####################################"+JSON.stringify(app.selected)+"###############################");

@@ -25,10 +25,13 @@ a{
 }
 .wraper.active{
 	display: inline;
+	background-color: white;
+	z-index: 2;
 }
 .wraper{
 	display: none;
 	width: 100vw;
+	background-color: white;
 }
 .menu{
 	width: 100vw;
@@ -146,9 +149,16 @@ hr{
 }
 .lds-ripple {
 	display: inline-block;
-	position: relative;
-	width: 64px;
-	height: 64px;
+	position: fixed;
+	margin: 0 auto;
+	width: 75%;
+	position: fixed;
+	left: 50%;
+	margin-left: -37.5%;
+	top: 50vh;
+	left: 80vw;
+	width: 30px;
+	height: 30px;
   }
   .lds-ripple div {
 	position: absolute;
@@ -176,7 +186,11 @@ hr{
 	  opacity: 0;
 	}
   }
-  
+.spinner_text{
+	position: absolute;
+	top: 60vh;
+	left: 25vw;
+}
 .linkbox{
 	width: 100vw;
 	height: 50vh;
