@@ -274,6 +274,8 @@ hr{
 }
 .kastenschrift{
 	color: white;
+	padding-top: 30px;
+	font-size: 1.3em;
 }
 @keyframes bounce{
 	0%{top: 91vh}
