@@ -26,7 +26,24 @@
 			app.counter = app.counter+1;
 			console.log(app.counter);
 			evothings.eddystone.startScan(app.onBeaconFound, app.onError);
-			}, 600);
+			}, 610);
+
+			// Slideshow
+			var slideIndex = 0;
+			showSlides();
+			function showSlides() {
+			var i;
+			var slides = document.getElementsByClassName("mySlides");
+			for (i = 0; i < slides.length; i++) {
+				slides[i].style.display = "none"; 
+			}
+			slideIndex++;
+			if (slideIndex > slides.length) {slideIndex = 1} 
+			slides[slideIndex-1].style.display = "block"; 
+			setTimeout(showSlides, 5000); // Change image every 2 seconds
+			}
+			// Slideshow
+
 	}
 
 	app.stopScan = function()
@@ -74,7 +91,6 @@
 					return false;
 				}
 			});
-			console.log(overviewArray);
 			// Dann wird der Beacon entweder hinzugefügt oder nicht
 			if(overviewArray.includes(true)){
 				return;
@@ -93,13 +109,13 @@
 			   for(i=0;i<beaconCollection.length-1;i++){
 				  if(beaconCollection[i].distance < beaconCollection[i+1].distance){
 					  smallest = app.beaconCollection[i];
-					  if(smallest.counter>=5){
+					  if(smallest.counter>=5&&smallest.distance<1){
 						app.selected = smallest;
 						app.beaconCollection.map(beacon => beacon.counter = 0);
 					  }
 				  }else if(smallest.distance > beaconCollection[i+1].distance){
 						smallest = app.beaconCollection[i+1];
-					  if(smallest.counter>=5){
+					  if(smallest.counter>=5&&smallest.distance<1){
 						app.selected = smallest;
 						app.beaconCollection.map(beacon => beacon.counter = 0);
 					  }
@@ -114,6 +130,7 @@
 				let station = selected.name.toString();
 				document.getElementById("https://twitter.com/woasned").classList.remove('active');
 				document.getElementById("https://twitter.com/estimote").classList.remove('active');
+				document.getElementById("https://twitter.com/home").classList.remove('active');
 				document.getElementById(station).classList.add('active');
 			}
 		}

@@ -7,7 +7,7 @@ body{
 	font-family: Flama-Basic;
 	width: 100vw;
 }
-h1,h3{
+h1,h2,h3{
 	font-family: Flama-Semi;
 }
 a{
@@ -72,9 +72,7 @@ a{
 	height: 40vh;
 	position: absolute;
 	top: 10vh;
-	background-image: url(../images/foto_lab_1.jpg);
-	background-size: cover;
-	background-repeat: no-repeat;
+	overflow: hidden;
 }
 .welcome{
 	width: 100vw;
@@ -96,30 +94,30 @@ a{
 	width: 100vw;
 	height: 20vh;
 	position: absolute;
-	top: 200vh;
+	top: 220vh;
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
 .footer{
 	width: 100vw;
-	height: 15vh;
+	height: 10vh;
 	background-image: url(../images/1200px-Logo-Hochschule-RheinMain.svg.png);
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 30%;
+	background-size: 40%;
 	position: absolute;
-	top: 275vh;
+	top: 300vh;
 	box-shadow: 0px 0px 10px black;
 }
 .footer_homepage{
 	width: 100vw;
-	height: 15vh;
+	height: 10vh;
 	background-image: url(../images/1200px-Logo-Hochschule-RheinMain.svg.png);
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 30%;
+	background-size: 40%;
 	position: absolute;
 	top: 120vh;
 	box-shadow: 0px 0px 10px black;
@@ -131,12 +129,14 @@ a{
 .secondtext p{
 	font-size: 1.3em; 
 }
-p, h1,h3{
+p, h1,h2,h3{
 	text-align: center;
 	color: black;
 }
 .welcome p{
 	font-size: 1.3em; 
+	width: 90%;
+	margin: 0 auto;
 }
 .icon_workflow{
 	height: 70px;
@@ -161,6 +161,7 @@ p, h1,h3{
 	background-image: url(../images/icon_homepage.png);
 	background-size: cover;
 	background-repeat: no-repeat;
+	overflow: hidden;
 }
 .avatar_eine{
 	height: 150px;
@@ -244,15 +245,14 @@ hr{
 	top: 100vh;
 }
 .install{
-	width: 95%;
-	margin: 2.5%;
+	width: 100%;
 	height: 50%;
 	background-color: rgb(150, 191, 50); 
+	text-align: center;
 }
 .backend, .frontend{
-	width: 45%;
-	height: 45%;
-	margin: 2.5%;
+	width: 50%;
+	height: 50%;
 	background-color: green;
 	float: left;
 }
@@ -274,8 +274,10 @@ hr{
 }
 .kastenschrift{
 	color: white;
-	padding-top: 30px;
 	font-size: 1.3em;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 20vh; 
 }
 @keyframes bounce{
 	0%{top: 91vh}
@@ -285,4 +287,101 @@ hr{
 
 @media only screen and (min-device-width: 1000px) {
 /*	EVTL Weboptimierung wenn benötigt*/
+}
+
+/* slideshow */
+
+
+/* Slideshow container */
+
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+	width: 100%;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+img{
+	width: 100vw;
 }

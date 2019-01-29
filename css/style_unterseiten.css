@@ -11,9 +11,7 @@ body{
 .welcome{
     padding: 15px;
 }
-.videocontainer{
 
-}
 a{
     color: black;
     font-family: Flama-Basic;
@@ -42,4 +40,13 @@ a{
 	height: 9vh;
 	margin: 0 auto;
 	margin-top: 2vh;
+}
+h1,p{
+    text-align: center;
+}
+.back{
+    color:black;
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 5px;
 }

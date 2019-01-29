@@ -5,7 +5,7 @@
    xmlns="http://www.w3.org/ns/widgets"
    xmlns:gap="http://phonegap.com/ns/1.0">
 
-<name>HSRM Beacon</name>
+<name>HSRM E-Biz Lab</name>
 <description> Eine App für das E-Business</description>
 <author email="m14279@googlemail.com" href="http://evothings.com"> Webb S Murph </author>
 <content src="index.html" />
