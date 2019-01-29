@@ -27,6 +27,8 @@
 <allow-navigation href="*youtube*" />
 <allow-navigation href="*ytimg*" />
 <allow-navigation href="*youtube-nocookie*" />
+<access origin="*" />
+<allow-navigation href="*://*youtube.com" />
 
 <platform name="ios">
    <allow-intent href="itms:*" />
