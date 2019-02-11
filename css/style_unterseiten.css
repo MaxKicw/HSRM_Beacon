@@ -11,6 +11,22 @@ body{
 .welcome{
     padding: 15px;
 }
+p, h1,h2,h3,h4{
+	text-align: center;
+	color: black;
+}
+h1,h2,h3,h4{
+	font-family: Flama-Semi;
+}
+.header_workflow_blue{
+	width: 100vw;
+	height: 40vh;
+	position: absolute;
+	top: 10vh;
+	background-image: url(../images/flow.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
 
 a{
     color: black;

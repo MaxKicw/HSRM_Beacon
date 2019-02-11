@@ -7,7 +7,7 @@ body{
 	font-family: Flama-Basic;
 	width: 100vw;
 }
-h1,h2,h3{
+h1,h2,h3,h4{
 	font-family: Flama-Semi;
 }
 a{
@@ -129,10 +129,11 @@ a{
 .secondtext p{
 	font-size: 1.3em; 
 }
-p, h1,h2,h3{
+p, h1,h2,h3,h4{
 	text-align: center;
 	color: black;
 }
+
 .welcome p{
 	font-size: 1.3em; 
 	width: 90%;
