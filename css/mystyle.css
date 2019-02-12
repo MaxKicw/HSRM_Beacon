@@ -8,7 +8,7 @@ body{
 	width: 100vw;
 }
 h1,h2,h3,h4{
-	font-family: Flama-Semi;
+	font-family: Flama-Basic;
 }
 a{
 	display: block;
@@ -19,10 +19,7 @@ a{
 	font-family: Flama-Basic;
 	src: url(./font/Flama-Basic.otf);
 }
-@font-face{
-	font-family: Flama-Semi;
-	src: url(./font/Flama-Semibold.otf);
-}
+
 .wraper.active{
 	display: inline;
 	background-color: white;
@@ -244,18 +241,21 @@ hr{
 	height: 50vh;
 	position: absolute;
 	top: 100vh;
+	display: table; 
 }
 .install{
 	width: 100%;
 	height: 50%;
 	background-color: rgb(150, 191, 50); 
 	text-align: center;
+	display: table; 
 }
 .backend, .frontend{
 	width: 50%;
 	height: 50%;
 	background-color: green;
 	float: left;
+	display: table; 
 }
 .hsrm{
 	height: 12vh;
@@ -278,7 +278,11 @@ hr{
 	font-size: 1.3em;
 	text-align: center;
 	vertical-align: middle;
-	line-height: 20vh; 
+	line-height: 30px; 
+	display: table-cell;  
+}
+.extra{
+	font-size: 1.3em;
 }
 @keyframes bounce{
 	0%{top: 91vh}
